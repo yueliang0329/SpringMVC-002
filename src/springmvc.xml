@@ -42,4 +42,9 @@
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="i18n"></property>
 	</bean>
+	
+	<!--  
+	<mvc:view-controller path="/i18n" view-name="i18n"/>
+	-->
+	<mvc:view-controller path="/i18n2" view-name="i18n2"/>
 </beans>

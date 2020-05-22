@@ -52,5 +52,24 @@
 	
 		<br><br>
 		<a href="i18n">I18N PAGE</a>
+		
+		<br><br>
+		<form action="testFileUpload" method="POST" enctype="multipart/form-data">
+			File: <input type="file" name="file"/>
+			Desc: <input type="text" name="desc"/>
+		<input type="submit" value="Submit"/>
+		</form>
+		
+		<br><br>
+		<a href="testExceptionHandlerExceptionResolver?i=10">Test ExceptionHandlerExceptionResolver</a>
+		
+		<br><br>
+		<a href="testResponseStatusExceptionResolver?i=10">Test ResponseStatusExceptionResolver</a>
+		
+		<br><br>
+		<a href="testDefaultHandlerExceptionResolver">Test DefaultHandlerExceptionResolver</a>
+		
+		<br><br>
+		<a href="testSimpleMappingExceptionResolver?i=2">Test SimpleMappingExceptionResolver</a>
 </body>
 </html>

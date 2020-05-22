@@ -47,4 +47,40 @@
 	<mvc:view-controller path="/i18n" view-name="i18n"/>
 	-->
 	<mvc:view-controller path="/i18n2" view-name="i18n2"/>
+	
+	<!-- 配置 SessionLocalResolver 国际化-->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+		
+	<mvc:interceptors>		
+		<!-- 配置 LocaleChanceInterceptor 国际化-->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+			
+		<!-- 配置自定义的拦截器 -->
+		<bean class="com.gzj.springmvc.interceptors.FirstInterceptor"></bean>
+		
+		<!-- 配置拦截器(不)作用的路径 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/emps"/>
+			<bean class="com.gzj.springmvc.interceptors.SecondInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- 配置 MultipartResolver 实现文件上传-->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxUploadSize" value="1024000"></property>	
+	</bean>	
+	
+	<!-- 配置使用 SimpleMappingExceptionResolver 来映射异常 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<!-- <property name="exceptionAttribute" value="ex"></property> -->	
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
+			</props>
+		</property>
+	</bean>	
+	
 </beans>
